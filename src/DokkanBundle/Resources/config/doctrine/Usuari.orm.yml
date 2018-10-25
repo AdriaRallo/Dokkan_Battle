@@ -35,4 +35,15 @@ DokkanBundle\Entity\Usuari:
             length: 255
             options:
                 fixed: false
+    # Afegit
+    oneToMany:
+        entrada:
+            targetEntity: Entrada
+            cascade: [ "persist" ]
+            mappedBy: usuari
+        comentari:
+            targetEntity: Comentari
+            cascade: [ "persist" ]
+            mappedBy: usuari
+    #Afegit
     lifecycleCallbacks: {  }

@@ -36,19 +36,31 @@ DokkanBundle\Entity\Entrada:
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: entrada
             joinColumns:
                 categoria_id:
                     referencedColumnName: id
             orphanRemoval: false
+        #Afegit
         usuari:
             targetEntity: Usuari
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: entrada
             joinColumns:
                 usuari_id:
                     referencedColumnName: id
             orphanRemoval: false
+        comentari:
+            targetEntity: Comentari
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: entrada
+            joinColumns:
+                usuari_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        #Afegit
     lifecycleCallbacks: {  }

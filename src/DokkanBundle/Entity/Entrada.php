@@ -32,6 +32,21 @@ class Entrada
      */
     private $usuari;
 
+    protected $Comentari;
+    
+    public function __construct() {
+        $this->Comentari = new ArrayCollection();
+                
+    }
+
+    public function __toString(){
+        return $this->contingut;
+    }
+
+    public function getEntrada() {
+        return $this->Comentari;
+    }
+
 
     /**
      * Get id

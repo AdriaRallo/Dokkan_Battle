@@ -30,7 +30,7 @@ DokkanBundle\Entity\Comentari:
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: comentari
             joinColumns:
                 entrada_id:
                     referencedColumnName: id
@@ -40,7 +40,7 @@ DokkanBundle\Entity\Comentari:
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: comentari
             joinColumns:
                 usuari_id:
                     referencedColumnName: id

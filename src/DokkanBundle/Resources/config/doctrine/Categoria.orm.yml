@@ -17,4 +17,11 @@ DokkanBundle\Entity\Categoria:
             length: 50
             options:
                 fixed: false
+    # Afegit
+    oneToMany:
+        entrada:
+            targetEntity: Entrada
+            cascade: [ "persist" ]
+            mappedBy: categoria
+    #Afegit
     lifecycleCallbacks: {  }

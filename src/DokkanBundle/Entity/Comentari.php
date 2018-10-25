@@ -27,7 +27,6 @@ class Comentari
      */
     private $usuari;
 
-
     /**
      * Get id
      *

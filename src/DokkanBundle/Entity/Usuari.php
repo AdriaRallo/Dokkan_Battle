@@ -32,6 +32,19 @@ class Usuari
      */
     private $foto;
 
+    protected $Entrada;
+    
+    public function __construct() {
+        $this->Entrada = new ArrayCollection();
+    }
+
+    public function __toString(){
+        return $this->titol;
+    }
+
+    public function getEntrada() {
+        return $this->Entrada;
+    }
 
     /**
      * Get id
