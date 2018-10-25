@@ -1,0 +1,48 @@
+DokkanBundle\Entity\Comentari:
+    type: entity
+    table: comentaris
+    indexes:
+        entrada_id:
+            columns:
+                - entrada_id
+        usuari_id:
+            columns:
+                - usuari_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        contingut:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        entrada:
+            targetEntity: Entrada
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                entrada_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        usuari:
+            targetEntity: Usuari
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                usuari_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

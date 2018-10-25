@@ -1,0 +1,3 @@
+dokkan_homepage:
+    path:     /
+    defaults: { _controller: DokkanBundle:Default:index }

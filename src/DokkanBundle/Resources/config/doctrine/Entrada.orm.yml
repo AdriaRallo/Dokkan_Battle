@@ -1,0 +1,54 @@
+DokkanBundle\Entity\Entrada:
+    type: entity
+    table: entrades
+    indexes:
+        id_categories_entrades:
+            columns:
+                - categoria_id
+        id_usuaris_entrades:
+            columns:
+                - usuari_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        titol:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        contingut:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        categoria:
+            targetEntity: Categoria
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                categoria_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        usuari:
+            targetEntity: Usuari
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                usuari_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
