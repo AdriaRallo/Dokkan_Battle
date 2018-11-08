@@ -35,6 +35,13 @@ DokkanBundle\Entity\Usuari:
             length: 255
             options:
                 fixed: false
+                
+        role:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
     # Afegit
     oneToMany:
         entrada:

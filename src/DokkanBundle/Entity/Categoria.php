@@ -17,19 +17,19 @@ class Categoria
      */
     private $nom;
 
-    protected $Entrada;
+    protected $entrada;
     
     public function __construct() {
-        $this->Entrada = new ArrayCollection();
+        $this->entrada = new ArrayCollection();
                 
     }
 
     public function __toString(){
-        return $this->name;
+        return $this->entrada;
     }
 
     public function getEntrada() {
-        return $this->Entrada;
+        return $this->entrada;
     }
     
     /**

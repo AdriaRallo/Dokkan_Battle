@@ -52,15 +52,11 @@ DokkanBundle\Entity\Entrada:
                 usuari_id:
                     referencedColumnName: id
             orphanRemoval: false
+    
+    oneToMany:
         comentari:
             targetEntity: Comentari
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: entrada
-            joinColumns:
-                usuari_id:
-                    referencedColumnName: id
-            orphanRemoval: false
+            cascade: [ "persist" ]
+            mappedBy: entrada
         #Afegit
     lifecycleCallbacks: {  }

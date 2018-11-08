@@ -1,11 +1,13 @@
 <?php
 
 namespace DokkanBundle\Entity;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
  * Usuari
  */
-class Usuari
+class Usuari implements UserInterface
 {
     /**
      * @var integer
@@ -32,19 +34,59 @@ class Usuari
      */
     private $foto;
 
-    protected $Entrada;
+    
+    
+    private $role;
+    protected $entrada;
+    protected $comentari;
     
     public function __construct() {
-        $this->Entrada = new ArrayCollection();
+        $this->entrada = new ArrayCollection();
+        $this->comentari = new ArrayCollection();
+                
     }
 
     public function __toString(){
-        return $this->titol;
+        return $this->entrada;
     }
 
     public function getEntrada() {
-        return $this->Entrada;
+        return $this->entrada;
     }
+    public function getComentari() {
+        return $this->comentari;
+    }
+    
+    # Aixo es provisional abans ficaba -> protected $Entrada i el protected $comentari no estaba
+    
+//    protected $entrada;
+//    protected $comentari;
+
+    
+   
+    public function getUsername() {
+        return $this -> email;
+    }
+    
+    public function getSalt() {
+        return null;
+    }
+    
+    public function getRoles() {
+        return array($this->getRole());
+    }
+    
+    public function eraseCredentials() {
+        
+    }
+    
+//    public function __toString(){
+//        return $this->password;
+//    }
+//
+//    public function getEntrada() {
+//        return $this->Entrada;
+//    }
 
     /**
      * Get id
@@ -151,5 +193,25 @@ class Usuari
     {
         return $this->foto;
     }
+    
+    
+        public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+    
+    
 }
 
