@@ -17,7 +17,7 @@ logout:
 
 
 #CRUD
-
+#CRUD CATEGORIA
 dokkan_index_categoria:
     path: /categories
     defaults: { _controller: DokkanBundle:Categoria:index }
@@ -33,5 +33,23 @@ dokkan_delete_categoria:
 dokkan_edit_categoria:
     path: /categories/edit/{id}
     defaults: { _controller: DokkanBundle:Categoria:edit }
+
+# CRUD ENTRADA
+
+dokkan_index_entrada:
+    path: /entrades
+    defaults: { _controller: DokkanBundle:Entrada:index }
+
+dokkan_add_entrada:
+    path: /entrades/add
+    defaults: { _controller: DokkanBundle:Entrada:add }   
+    
+dokkan_delete_entrada:
+    path: /entrades/delete/{id}
+    defaults: { _controller: DokkanBundle:Entrada:delete }
+    
+dokkan_edit_entrada:
+    path: /entrades/edit/{id}
+    defaults: { _controller: DokkanBundle:Entrada:edit }
 
 #CRUD

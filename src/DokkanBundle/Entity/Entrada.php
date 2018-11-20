@@ -1,6 +1,8 @@
 <?php
 
 namespace DokkanBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Entrada
