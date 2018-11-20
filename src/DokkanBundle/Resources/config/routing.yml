@@ -1,6 +1,8 @@
 dokkan_homepage:
     path: /main
     defaults: { _controller: DokkanBundle:Default:index }
+    
+# Login    
 login:
     path: /login
     defaults: { _controller: DokkanBundle:User:login }    
@@ -10,3 +12,26 @@ login_check:
     
 logout:
     path: /logout
+    
+# Login    
+
+
+#CRUD
+
+dokkan_index_categoria:
+    path: /categories
+    defaults: { _controller: DokkanBundle:Categoria:index }
+
+dokkan_add_categoria:
+    path: /categories/add
+    defaults: { _controller: DokkanBundle:Categoria:add }
+
+dokkan_delete_categoria:
+    path: /categories/delete/{id}
+    defaults: { _controller: DokkanBundle:Categoria:delete }
+    
+dokkan_edit_categoria:
+    path: /categories/edit/{id}
+    defaults: { _controller: DokkanBundle:Categoria:edit }
+
+#CRUD

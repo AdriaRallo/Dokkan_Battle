@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>
-            {% block title %} Blog {% endblock %}
+            {% block title %} Dokkan Battle {% endblock %}
         </title>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -16,7 +16,7 @@
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="{{path("dokkan_homepage")}}">Blog</a>
+                        <a class="navbar-brand" href="{{path("dokkan_homepage")}}">Dokkan Battle</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,7 +31,9 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#">
                                     
-                                 
+                                 {% if app.user != null%}   
+                                    Benvingut/da, {{app.user.nom}}
+                                 {% endif%}
                                     
                                 </a>
                             </li>
@@ -39,8 +41,19 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     
+                                    {% if app.user == null%}
                                         <li><a href="{{path("login")}}">Entrar</a></li>
+                                        {% else %}
+                                            {% if is_granted("ROLE_USER")%}
+                                                {% else %}
+                                                 <li><a href="{{path("dokkan_index_categoria")}}">Categories</a></li>
+                                                 <li><a href="#">Tags</a></li>
+                                                 <li><a href="#">Entrades</a></li>
+                                            {% endif %}
+                                    
                                     <li><a href="{{path("logout")}}">Sortir</a></li>
+                                    {% endif %}
+
                                 </ul>
                             </li>
                         </ul>

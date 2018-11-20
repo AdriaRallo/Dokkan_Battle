@@ -2,6 +2,7 @@
 
 namespace DokkanBundle\Entity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
@@ -56,13 +57,7 @@ class Usuari implements UserInterface
     public function getComentari() {
         return $this->comentari;
     }
-    
-    # Aixo es provisional abans ficaba -> protected $Entrada i el protected $comentari no estaba
-    
-//    protected $entrada;
-//    protected $comentari;
-
-    
+        
    
     public function getUsername() {
         return $this -> email;

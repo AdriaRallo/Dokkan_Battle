@@ -1,6 +1,8 @@
 <?php
 
 namespace DokkanBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Categories
@@ -28,7 +30,7 @@ class Categoria
         return $this->entrada;
     }
 
-    public function getEntrada() {
+    public function getEntrades() {
         return $this->entrada;
     }
     
