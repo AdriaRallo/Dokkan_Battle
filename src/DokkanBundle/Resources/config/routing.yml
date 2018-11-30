@@ -53,3 +53,11 @@ dokkan_edit_entrada:
     defaults: { _controller: DokkanBundle:Entrada:edit }
 
 #CRUD
+
+# Multi idioma
+
+dokkan_lang:
+    path: /entrades/lang/{_locale}
+    defaults: { _controller: DokkanBundle:Default:lang }
+
+# Multi idioma

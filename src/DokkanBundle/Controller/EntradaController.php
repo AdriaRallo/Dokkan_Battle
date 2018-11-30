@@ -92,5 +92,71 @@ class EntradaController extends Controller
             return 0;
 	}
 	
+                public function deleteAction($id){
+		$em = $this->getDoctrine()->getEntityManager();
+		$entrada_repo=$em->getRepository("DokkanBundle:Entrada");
+		$categoria_repo=$em->getRepository("DokkanBundle:Categoria");
+		
+		$entrada=$entrada_repo->find($id);
+		
+		if(is_object($entrada)){
+			$em->remove($entrada);
+			$em->flush();
+		}
+		
+		return $this->redirectToRoute("dokkan_index_entrada");
+	}
+        
+        
+        public function editAction(Request $request, $id){
+		$em = $this->getDoctrine()->getEntityManager();
+		$entrada_repo = $em->getRepository("DokkanBundle:Entrada");
+		$categoria_repo = $em->getRepository("DokkanBundle:Categoria");
+		
+		$entrada=$entrada_repo->find($id);
+		
+		$form = $this->createForm(EntradaType::class, $entrada);
+		
+		$form->handleRequest($request);
+		
+		if($form->isSubmitted()){
+			if($form->isValid()){
+				
+				/*
+					$entrada->setTitle($form->get("title")->getData());
+					$entrada->setContent($form->get("content")->getData());
+					$entrada->setStatus($form->get("status")->getData());
+				 */
+
+				$categoria = $categoria_repo->find($form->get("categoria")->getData());
+				$entrada->setCategoria($categoria);
+				
+				$user=$this->getUser();
+				$entrada->setUsuari($user);
+				
+				$em->persist($entrada);
+				$flush=$em->flush();
+				
+		
+				if($flush==null){
+					$status = "Entrada editada correctament";
+				}else{
+					$status = "Alguna cosa ha fallat";
+				}
+				
+			}else{
+				$status = "Formulari no vàlid";
+			}
+			
+			$this->session->getFlashBag()->add("status", $status);
+			return $this->redirectToRoute("dokkan_index_entrada");
+		}
+		
+		return $this->render("DokkanBundle:Entrada:edit.html.twig",array(
+			"form" => $form->createView(),
+			"entrada" => $entrada,
+		));
+	}
+        
 	
 }

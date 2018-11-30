@@ -8,16 +8,21 @@
 
 {% for entrada in entrades %}
     <div class="col-lg-11">        
-        <p><strong>{{entrada.titol}}</strong></p>
-        <p>Autor:{{entrada.usuari.nom}}</p>
-                
+        <h2>{{entrada.titol}}</h2>
+        <p><b>Autor:</b>{{entrada.usuari.nom}}</p>
+        <p><b>Contingut:</b></p>
+        <a href="{{path("dokkan_lang",{"_locale":"es"})}}">Español</a>
+        <a href="{{path("dokkan_lang",{"_locale":"en"})}}">Anglés</a>
+
+        <table width="100%" align="justify" border="1" cellspacing="0" cellpadding="0"><tr><td><fieldset>{{entrada.contingut | raw}}</fieldset></td></tr></table>
+        <p>
+        <p><b>Categoria:</b> {{entrada.categoria}}</p>
         {%if (app.user.id is defined) and (entrada.usuari.id == app.user.id) %}
         <p>
             <a href="{{path("dokkan_delete_entrada",{"id":entrada.id})}}" class="btn btn-danger">Esborrar</a>
             <a href="{{path("dokkan_edit_entrada",{"id":entrada.id})}}" class="btn btn-warning">{% trans %}btn_edit{% endtrans %}</a>
         </p>
         {%endif%}
-        
         <div class="clearfix"></div>
         <hr/>
     </div>

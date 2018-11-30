@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 class EntradaType extends AbstractType
 {
@@ -26,7 +27,7 @@ class EntradaType extends AbstractType
 				"label" => "Títol:",
 				"attr" =>array("class" => "form-control")
 			))
-            ->add('contingut', TextareaType::class,array(
+            ->add('contingut', CKEditorType::class,array(
 				"label" => "Contingut:",
 				"attr" =>array("class" => "form-control")
 			))

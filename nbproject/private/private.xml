@@ -5,8 +5,12 @@
         <group>
             <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Resources/views/Entrada/index.html.twig</file>
             <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Resources/config/routing.yml</file>
-            <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Form/EntradaType.php</file>
-            <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Resources/views/Entrada/add.html.twig</file>
+            <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/EventListener/LocaleListener.php</file>
+            <file>file:/var/www/html/dokkan_battle/app/config/services.yml</file>
+            <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Resources/translations/messages.es.yml</file>
+            <file>file:/var/www/html/dokkan_battle/app/config/config.yml</file>
+            <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Controller/DefaultController.php</file>
+            <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Resources/translations/messages.en.yml</file>
             <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Controller/EntradaController.php</file>
         </group>
     </open-files>
