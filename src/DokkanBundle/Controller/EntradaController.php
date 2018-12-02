@@ -20,8 +20,10 @@ class EntradaController extends Controller
         public function indexAction(Request $request){		
 		$em = $this->getDoctrine()->getEntityManager();
 		$entrada_repo=$em->getRepository("DokkanBundle:Entrada");
-                $entrades=$entrada_repo->findAll();
+                $entrades_2=$entrada_repo->findAll();
                
+                $paginator = $this->get('knp_paginator');
+                $entrades = $paginator->paginate($entrades_2, $request->query->getInt('page', 1), 3);
 		
                 return $this->render("DokkanBundle:Entrada:index.html.twig",array(
 			"entrades" => $entrades,

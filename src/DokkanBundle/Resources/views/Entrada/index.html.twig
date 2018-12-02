@@ -2,6 +2,31 @@
 
 {% block content %}
 
+    <table cellpadding="5" cellspacing="2" style="text-align: justify; width: 1840px;">
+    <tbody><tr><td bgcolor="#1f7cec" width="150"><div style="text-align: center;">
+    <span style="color: white;"><b><span style="color: white;">&nbsp; </span><span style="color: white;">{% trans %}titol_traduccio_entrades{% endtrans %}</span></b></span></div>
+    </td></tr>
+    </tbody></table>
+    
+    <p>
+           
+    <div style="text-align:center;">
+        <a href="{{path("dokkan_lang",{"_locale":"es"})}}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/1200px-Flag_of_Spain.svg.png" width="37" height="25"/></a>
+        <a href="{{path("dokkan_lang",{"_locale":"en"})}}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Flag_of_the_United_Kingdom_%281806%29.svg/1200px-Flag_of_the_United_Kingdom_%281806%29.svg.png" width="37" height="25"/></a>
+        <a href="{{path("dokkan_lang",{"_locale":"cat"})}}"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Bandera_Estelada_de_Catalunya.png" width="37" height="25"/></a>
+    </div>
+
+    <p>
+    
+    <table cellpadding="5" cellspacing="2" style="text-align: justify; width: 1840px;">
+    <tbody><tr><td bgcolor="#1f7cec" width="150"><div style="text-align: center;">
+    <span style="color: white;"><b><span style="color: white;">&nbsp; </span><span style="color: white;">{% trans %}titol_entrades_entrades{% endtrans %}</span></b></span></div>
+    </td></tr>
+    </tbody></table>
+        
+    <p> 
+    
+    
 {% for message in app.session.flashbag().get('status') %}
     <div class="alert alert-success">{{ message }}</div>
 {% endfor %}
@@ -9,18 +34,16 @@
 {% for entrada in entrades %}
     <div class="col-lg-11">        
         <h2>{{entrada.titol}}</h2>
-        <p><b>Autor:</b>{{entrada.usuari.nom}}</p>
+        <p><b>Autor: </b>{{entrada.usuari.nom}}</p>
         <p><b>Contingut:</b></p>
-        <a href="{{path("dokkan_lang",{"_locale":"es"})}}">Español</a>
-        <a href="{{path("dokkan_lang",{"_locale":"en"})}}">Anglés</a>
 
         <table width="100%" align="justify" border="1" cellspacing="0" cellpadding="0"><tr><td><fieldset>{{entrada.contingut | raw}}</fieldset></td></tr></table>
         <p>
         <p><b>Categoria:</b> {{entrada.categoria}}</p>
         {%if (app.user.id is defined) and (entrada.usuari.id == app.user.id) %}
         <p>
-            <a href="{{path("dokkan_delete_entrada",{"id":entrada.id})}}" class="btn btn-danger">Esborrar</a>
-            <a href="{{path("dokkan_edit_entrada",{"id":entrada.id})}}" class="btn btn-warning">{% trans %}btn_edit{% endtrans %}</a>
+            <a href="{{path("dokkan_delete_entrada",{"id":entrada.id})}}" class="btn btn-danger">{% trans %}btn_del_entrades{% endtrans %}</a>
+            <a href="{{path("dokkan_edit_entrada",{"id":entrada.id})}}" class="btn btn-warning">{% trans %}btn_edit_entrades{% endtrans %}</a>
         </p>
         {%endif%}
         <div class="clearfix"></div>
@@ -29,5 +52,9 @@
     
     <div class="clearfix"></div>
 {% endfor %}
+
+<div class="navigation">
+        {{ knp_pagination_render(entrades) }}
+</div>
 
 {% endblock %}

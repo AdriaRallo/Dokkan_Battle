@@ -16,7 +16,7 @@
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="{{path("dokkan_homepage")}}">Dokkan Battle</a>
+                        <a class="navbar-brand" href="{{path("dokkan_index_entrada")}}">Dokkan Battle | Main</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,7 +47,7 @@
                                             {% if is_granted("ROLE_USER")%}
                                                 {% else %}
                                                  <li><a href="{{path("dokkan_index_categoria")}}">Categories</a></li>
-                                                 <li><a href="{{path("dokkan_add_entrada")}}">Entrades</a></li>
+                                                 <li><a href="{{path("dokkan_add_entrada")}}">Afegir Entrada</a></li>
                                             {% endif %}
                                     
                                     <li><a href="{{path("logout")}}">Sortir</a></li>
