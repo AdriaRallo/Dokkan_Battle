@@ -1,6 +1,8 @@
 <?php
 
 namespace DokkanBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Comentari
@@ -26,7 +28,22 @@ class Comentari
      * @var \DokkanBundle\Entity\Usuari
      */
     private $usuari;
-
+    
+    # afegit  
+//    public function __construct() {
+//        $this->entrada = new ArrayCollection();
+//                
+//    }
+//
+//    public function __toString(){
+//        return $this->nom;
+//    }
+//
+//    public function getEntrades() {
+//        return $this->entrada;
+//    }
+    # afegit
+    
     /**
      * Get id
      *

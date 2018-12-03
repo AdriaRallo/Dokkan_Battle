@@ -1,0 +1,45 @@
+{% extends "DokkanBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="col-lg-6">
+        <h2>Llistat Comentaris</h2>
+        <hr/>
+        {# <a href="{{path("dokkan_add_comentari")}}" class="btn btn-success">Afegir Comentari</a> #}
+        <hr/>
+        
+        {% for message in app.session.flashbag().get('status') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+
+        {% for comentari in comentaris %}
+        <div class="col-lg-11">        
+        <h2>Comentaris de: {{comentari.entrada.titol}}</h2>
+        <p><b>Autor del Comentari: </b>{{comentari.usuari.nom}}</p>
+        <p><b>Contingut:</b></p>
+
+        <table width="100%" align="justify" border="1" cellspacing="0" cellpadding="0">
+        <tr><td><fieldset>{{comentari.contingut | raw}}</fieldset></td></tr>
+        </table>
+        <p>
+            
+        
+        {%if ((app.user.id is defined) and (comentari.usuari.id == app.user.id)) or (comentari.usuari.role != "ROLE_ADMIN") %}
+        <p>
+            <a href="{{path("dokkan_delete_comentari",{"id":comentari.id})}}" class="btn btn-danger">Esborrar</a>
+            <a href="{{path("dokkan_edit_comentari",{"id":comentari.id})}}" class="btn btn-warning">Editar</a>
+        </p>
+        {%endif%}
+        
+        
+        <div class="clearfix"></div>
+        <hr/>
+    </div>
+    
+    <div class="clearfix"></div>
+        
+{% endfor %}
+
+<div class="navigation">
+        {{ knp_pagination_render(comentaris) }}
+</div>
+{% endblock %}

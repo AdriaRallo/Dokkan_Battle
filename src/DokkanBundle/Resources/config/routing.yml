@@ -61,3 +61,23 @@ dokkan_lang:
     defaults: { _controller: DokkanBundle:Default:lang }
 
 # Multi idioma
+
+# Comentaris
+
+dokkan_index_comentari:
+    path: /comentaris
+    defaults: { _controller: DokkanBundle:Comentari:index }
+
+dokkan_add_comentari:
+    path: /comentaris/add
+    defaults: { _controller: DokkanBundle:Comentari:add }
+
+dokkan_delete_comentari:
+    path: /comentaris/delete/{id}
+    defaults: { _controller: DokkanBundle:Comentari:delete }
+
+dokkan_edit_comentari:
+    path: /comentaris/edit/{id}
+    defaults: { _controller: DokkanBundle:Comentari:edit }
+    
+# Comentaris

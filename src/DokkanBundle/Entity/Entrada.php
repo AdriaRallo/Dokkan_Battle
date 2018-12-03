@@ -42,8 +42,15 @@ class Entrada
     }
 
     public function __toString(){
-        return $this->comentari;
+        return $this->contingut;
     }
+    
+//    public function __toString(){
+//        if(is_null($this->comentari)) {
+//            return 'NULL';
+//        }
+//        return $this->comentari;
+//    }
 
     public function getComentari() {
         return $this->comentari;

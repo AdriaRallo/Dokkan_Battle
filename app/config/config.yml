@@ -79,3 +79,9 @@ knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig  # plantilla controles
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # plantilla links ordenación
+        
+# knp_disqus:
+#    api_key: 41LW3f82jfrZ58Pk5brVM3Eh2ASxSnfsa52hZ0eY1sCNqMJnhaDZQsVEFeL7j9wK
+#    forums:
+#        lorem:
+#            shortname: dokkan-battle

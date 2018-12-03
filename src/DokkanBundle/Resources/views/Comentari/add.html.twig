@@ -1,0 +1,12 @@
+{% extends "DokkanBundle::layout.html.twig"%}
+{% block content %}
+            
+    <div class="col-lg-6">
+        <h2>Afegir Comentaris</h2> 
+        <hr/>
+        {{form_start(form, {'enctype':'multipart/form-data'})}}
+        {{form_end(form)}}
+    </div>
+            
+    <div class="clearfix"></div>
+{% endblock %}

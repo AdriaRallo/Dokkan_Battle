@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new DokkanBundle\DokkanBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            # new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

@@ -45,9 +45,12 @@
                                         <li><a href="{{path("login")}}">Entrar</a></li>
                                         {% else %}
                                             {% if is_granted("ROLE_USER")%}
+                                                 <li><a href="{{path("dokkan_add_comentari")}}">Afegir Comentari</a></li>
                                                 {% else %}
                                                  <li><a href="{{path("dokkan_index_categoria")}}">Categories</a></li>
                                                  <li><a href="{{path("dokkan_add_entrada")}}">Afegir Entrada</a></li>
+                                                 <li><a href="{{path("dokkan_add_comentari")}}">Afegir Comentari</a></li>
+
                                             {% endif %}
                                     
                                     <li><a href="{{path("logout")}}">Sortir</a></li>
