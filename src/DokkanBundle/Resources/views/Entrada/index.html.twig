@@ -40,12 +40,34 @@
         <table width="100%" align="justify" border="1" cellspacing="0" cellpadding="0"><tr><td><fieldset>{{entrada.contingut | raw}}</fieldset></td></tr></table>
         <p>
         <p><b>Categoria:</b> {{entrada.categoria}}</p>
+        
         {%if (app.user.id is defined) and (entrada.usuari.id == app.user.id) %}
         <p>
             <a href="{{path("dokkan_delete_entrada",{"id":entrada.id})}}" class="btn btn-danger">{% trans %}btn_del_entrades{% endtrans %}</a>
             <a href="{{path("dokkan_edit_entrada",{"id":entrada.id})}}" class="btn btn-warning">{% trans %}btn_edit_entrades{% endtrans %}</a>
         </p>
         {%endif%}
+        
+        
+        {# afegit #}
+        
+        <h3>Comentaris</h3>
+        {% for comentari in entrada.comentari %}
+            <p><b>Autor del Comentari:</b> {{comentari.usuari.nom}}</p>
+            <p><b>Comentari:</b> {{comentari.contingut | raw}}</p>
+            
+            {%if ((app.user.id is defined) and (comentari.usuari.id == app.user.id)) or (comentari.usuari.role != "ROLE_ADMIN") %}
+            <p>
+            <a href="{{path("dokkan_delete_comentari",{"id":comentari.id})}}" class="btn btn-danger">Esborrar</a>
+            <a href="{{path("dokkan_edit_comentari",{"id":comentari.id})}}" class="btn btn-warning">Editar</a>
+            </p>
+            {%endif%}
+            <hr/>
+        {% endfor %}
+        
+        {# afegit #}
+        
+        
         <div class="clearfix"></div>
         <hr/>
     </div>
