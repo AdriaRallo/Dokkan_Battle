@@ -24,11 +24,11 @@ class ComentariType extends AbstractType
 				"label" => "Contingut:",
 				"attr" =>array("class" => "form-control")
 			))
-                ->add('entrada', EntityType::class,array(
-				"class" => "DokkanBundle:Entrada",
-				"label" => "Entrada:",
-				"attr" =>array("class" => "form-control")
-			))
+//                ->add('entrada', EntityType::class,array(
+//				"class" => "DokkanBundle:Entrada",
+//				"label" => "Entrada:",
+//				"attr" =>array("class" => "form-control")
+//			))
 //                ->add('usuari');
                 ->add('Guardar', SubmitType::class, array("attr" =>array(
 				"class" => "form-submit btn btn-success",

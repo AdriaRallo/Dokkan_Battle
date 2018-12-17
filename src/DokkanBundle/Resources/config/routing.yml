@@ -1,5 +1,5 @@
 dokkan_homepage:
-    path: /main
+    path: /
     defaults: { _controller: DokkanBundle:Default:index }
     
 # Login    
@@ -68,9 +68,11 @@ dokkan_index_comentari:
     path: /comentaris
     defaults: { _controller: DokkanBundle:Comentari:index }
 
+#Editat
 dokkan_add_comentari:
-    path: /comentaris/add
+    path: /comentaris/add/{id}
     defaults: { _controller: DokkanBundle:Comentari:add }
+#Editat
 
 dokkan_delete_comentari:
     path: /comentaris/delete/{id}

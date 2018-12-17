@@ -32,7 +32,7 @@ class ComentariController extends Controller
 		));
     }
     
-	public function addAction(Request $request){
+	public function addAction(Request $request, $id){
 		$comentari = new Comentari();
 		$form = $this->createForm(ComentariType::class,$comentari);
 		
@@ -48,7 +48,8 @@ class ComentariController extends Controller
 				$comentari = new Comentari();
 				$comentari->setContingut($form->get("contingut")->getData());
 				
-				$entrada = $entrada_repo->find($form->get("entrada")->getData());
+                                $entrada=$entrada_repo->find($id);
+#editat				#$entrada = $entrada_repo->find($form->get("entrada")->getData());
 				$comentari->setEntrada($entrada);
 				
 				$user=$this->getUser();
@@ -69,7 +70,7 @@ class ComentariController extends Controller
 			}
 			
 			$this->session->getFlashBag()->add("status", $status);
-			return $this->redirectToRoute("dokkan_index_comentari");
+			return $this->redirectToRoute("dokkan_index_entrada");
 		}
 		
 		
@@ -92,10 +93,10 @@ class ComentariController extends Controller
 			$em->flush();
 		}
 		
-		return $this->redirectToRoute("dokkan_index_comentari");
+		return $this->redirectToRoute("dokkan_index_entrada");
     }
     
-    public function editAction(Request $request, $id){
+   public function editAction(Request $request, $id){
 		$em = $this->getDoctrine()->getEntityManager();
 		$comentari_repo = $em->getRepository("DokkanBundle:Comentari");
 		$entrada_repo = $em->getRepository("DokkanBundle:Entrada");
@@ -109,7 +110,10 @@ class ComentariController extends Controller
 		if($form->isSubmitted()){
 			if($form->isValid()){
 				
+                                #editat
+                                #$entrada=$entrada_repo->find($id);
 				$entrada = $entrada_repo->find($form->get("entrada")->getData());
+                                #editat
 				$comentari->setEntrada($entrada);
 				
 				$user=$this->getUser();
@@ -130,7 +134,7 @@ class ComentariController extends Controller
 			}
 			
 			$this->session->getFlashBag()->add("status", $status);
-			return $this->redirectToRoute("dokkan_index_comentari");
+			return $this->redirectToRoute("dokkan_index_entrada");
 		}
 		
 		return $this->render("DokkanBundle:Comentari:edit.html.twig",array(
