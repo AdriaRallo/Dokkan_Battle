@@ -48,7 +48,7 @@ class Usuari implements UserInterface
     }
 
     public function __toString(){
-        return $this->entrada;
+        return $this->nom;
     }
 
     public function getEntrada() {

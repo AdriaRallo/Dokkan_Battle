@@ -79,7 +79,7 @@ dokkan_delete_comentari:
     defaults: { _controller: DokkanBundle:Comentari:delete }
 
 dokkan_edit_comentari:
-    path: /comentaris/edit/{id}
+    path: /comentaris/edit/{id}/{id_ent}
     defaults: { _controller: DokkanBundle:Comentari:edit }
     
 # Comentaris

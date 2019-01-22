@@ -96,35 +96,44 @@ class ComentariController extends Controller
 		return $this->redirectToRoute("dokkan_index_entrada");
     }
     
-   public function editAction(Request $request, $id){
+   public function copia_editAction(Request $request, $id){
 		$em = $this->getDoctrine()->getEntityManager();
-		$comentari_repo = $em->getRepository("DokkanBundle:Comentari");
-		$entrada_repo = $em->getRepository("DokkanBundle:Entrada");
+		$entrada_repo = $em->getRepository("DokkanBundle:Comentari");
+		//$categoria_repo = $em->getRepository("DokkanBundle:Categoria");
 		
-		$comentari=$comentari_repo->find($id);
+		$entrada=$entrada_repo->find($id);
 		
-		$form = $this->createForm(ComentariType::class, $comentari);
+		$form = $this->createForm(ComentariType::class, $entrada);
 		
 		$form->handleRequest($request);
 		
 		if($form->isSubmitted()){
 			if($form->isValid()){
 				
-                                #editat
-                                #$entrada=$entrada_repo->find($id);
-				$entrada = $entrada_repo->find($form->get("entrada")->getData());
-                                #editat
-				$comentari->setEntrada($entrada);
+				/*
+					$entrada->setTitle($form->get("title")->getData());
+					$entrada->setContent($form->get("content")->getData());
+					$entrada->setStatus($form->get("status")->getData());
+				 */
+
+				//$categoria = $categoria_repo->find($form->get("categoria")->getData());
+				//$entrada->setCategoria($categoria);
 				
 				$user=$this->getUser();
-				$comentari->setUsuari($user);
+				$entrada->setUsuari($user);
+                                
+                                $ent=$this->getEntrada();
+				//$entrada->setUsuari($ent);
 				
-				$em->persist($comentari);
+                                echo "user".$user;
+                                echo "entrada".$entrada;
+                                die();
+				$em->persist($entrada);
 				$flush=$em->flush();
 				
 		
 				if($flush==null){
-					$status = "Comentari editat correctament";
+					$status = "comen editada correctament";
 				}else{
 					$status = "Alguna cosa ha fallat";
 				}
@@ -139,8 +148,52 @@ class ComentariController extends Controller
 		
 		return $this->render("DokkanBundle:Comentari:edit.html.twig",array(
 			"form" => $form->createView(),
-			"comentari" => $comentari,
+			"comentari" => $entrada,
 		));
     }
+    public function editAction(Request $request, $id, $id_ent){
+		$em = $this->getDoctrine()->getEntityManager();
+		$com_repo = $em->getRepository("DokkanBundle:Comentari");
+               
+		$com=$com_repo->find($id);
+             
+		
+		$form = $this->createForm(ComentariType::class, $com);
+		
+		$form->handleRequest($request);
+		
+		if($form->isSubmitted()){
+			if($form->isValid()){
+				
+				
+				
+				$user=$this->getUser();
+				$com->setUsuari($user);
+                                
+                               
+				$em->persist($com);
+				$flush=$em->flush();
+				
+		
+				if($flush==null){
+					$status = "comentari editat correctament";
+				}else{
+					$status = "Alguna cosa ha fallat";
+				}
+				
+			}else{
+				$status = "Formulari no vàlid";
+			}
+			
+			$this->session->getFlashBag()->add("status", $status);
+			return $this->redirectToRoute("dokkan_index_entrada");
+		}
+		
+		return $this->render("DokkanBundle:Comentari:edit.html.twig",array(
+			"form" => $form->createView(),
+			"comentari" => $com,
+		));
+    }
+    
     
 }

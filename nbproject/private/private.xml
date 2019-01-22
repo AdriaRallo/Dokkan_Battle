@@ -9,6 +9,8 @@
             <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Entity/Comentari.php</file>
             <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Resources/views/Comentari/index.html.twig</file>
             <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Controller/ComentariController.php</file>
+            <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Entity/Usuari.php</file>
+            <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Controller/EntradaController.php</file>
         </group>
     </open-files>
 </project-private>

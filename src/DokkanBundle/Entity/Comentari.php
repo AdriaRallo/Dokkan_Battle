@@ -35,9 +35,9 @@ class Comentari
 //                
 //    }
 //
-//    public function __toString(){
-//        return $this->nom;
-//    }
+    public function __toString(){
+        return $this->contingut;
+    }
 //
 //    public function getEntrades() {
 //        return $this->entrada;

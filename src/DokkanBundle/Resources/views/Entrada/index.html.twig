@@ -62,7 +62,8 @@
             {%if ((app.user.id is defined) and (comentari.usuari.id == app.user.id)) or (comentari.usuari.role != "ROLE_ADMIN") %}
             <p>
             <a href="{{path("dokkan_delete_comentari",{"id":comentari.id})}}" class="btn btn-danger">Esborrar</a>
-            <a href="{{path("dokkan_edit_comentari",{"id":comentari.id})}}" class="btn btn-warning">Editar</a>
+            <a href="{{path("dokkan_edit_comentari",{"id":comentari.id,"id_ent":entrada.id})}}" class="btn btn-warning">Editar</a>
+            {# <a href="{{path("dokkan_edit_comentari",{"id":comentari.id}{"ide":entrada.id})}}" class="btn btn-warning">Editar</a> #}
             </p>
             {%endif%}
             <hr/>
