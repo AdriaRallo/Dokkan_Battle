@@ -1,0 +1,37 @@
+{% extends 'DokkanBundle::cap.html.twig' %}
+
+{% block content %}
+
+    <center>
+<div class="container" class="row">
+<img src="{{asset('bundles/dokkan/img/PERSONAJES.png')}}" /></div>
+    <hr/>
+
+    <a href="{{url('dokkan_front_pj_str')}}">
+        <img onmouseout="this.src='{{asset('bundles/dokkan/img/BOTTON_STR.png')}}';"
+            onmouseover="this.src='{{asset('bundles/dokkan/img/BOTTON_STR_apagado.png')}}';"
+            src="{{asset('bundles/dokkan/img/BOTTON_STR.png')}}" /></a> 
+    <a href="{{url('dokkan_front_pj_agl')}}">
+        <img onmouseout="this.src='{{asset('bundles/dokkan/img/BOTTON_AGL.png')}}';"
+             onmouseover="this.src='{{asset('bundles/dokkan/img/BOTTON_AGL_apagado.png')}}';"
+             src="{{asset('bundles/dokkan/img/BOTTON_AGL.png')}}" /></a>
+    <a href="{{url('dokkan_front_pj_teq')}}">
+        <img onmouseout="this.src='{{asset('bundles/dokkan/img/BOTTON_TEQ.png')}}';"
+             onmouseover="this.src='{{asset('bundles/dokkan/img/BOTTON_TEQ_apagado.png')}}';"
+             src="{{asset('bundles/dokkan/img/BOTTON_TEQ.png')}}" /></a>  
+    <a href="{{url('dokkan_front_pj_int')}}"><img alt=""
+             onmouseout="this.src='{{asset('bundles/dokkan/img/BOTTON_INT.png')}}';"
+             onmouseover="this.src='{{asset('bundles/dokkan/img/BOTTON_INT_apagado.png')}}';"
+             src="{{asset('bundles/dokkan/img/BOTTON_INT.png')}}" /></a> 
+    <a href="{{url('dokkan_front_pj_phy')}}"> <img
+            onmouseout="this.src='{{asset('bundles/dokkan/img/BOTTON_PHY.png')}}';"
+            onmouseover="this.src='{{asset('bundles/dokkan/img/BOTTON_PHY_apagado.png')}}';"
+            src="{{asset('bundles/dokkan/img/BOTTON_PHY.png')}}" /></a> 
+    <hr/>
+            <a href="{{url('dokkan_front_pj_dokkan')}}"><img border="0"
+            src="{{asset('bundles/dokkan/img/Foto Personajes Awaken.png')}}" /></a>
+
+            <p>* Clicad en el botón de la categoría a la que queréis acceder. </p>
+</center>
+            
+{% endblock %}

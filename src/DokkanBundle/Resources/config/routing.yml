@@ -83,3 +83,81 @@ dokkan_edit_comentari:
     defaults: { _controller: DokkanBundle:Comentari:edit }
     
 # Comentaris
+
+
+# Front-End
+dokkan_front_home:
+    path: /home
+    defaults: { _controller: DokkanBundle:Front:home }
+
+    # Personajes
+    
+dokkan_front_personajes:
+    path: /personajes
+    defaults: { _controller: DokkanBundle:Front:personajes }
+    
+dokkan_front_pj_str:
+    path: /personajes/str
+    defaults: { _controller: DokkanBundle:Front:pj_str }
+    
+dokkan_front_pj_agl:
+    path: /personajes/agl
+    defaults: { _controller: DokkanBundle:Front:pj_agl }
+    
+dokkan_front_pj_teq:
+    path: /personajes/teq
+    defaults: { _controller: DokkanBundle:Front:pj_teq }
+    
+dokkan_front_pj_int:
+    path: /personajes/int
+    defaults: { _controller: DokkanBundle:Front:pj_int }
+    
+dokkan_front_pj_phy:
+    path: /personajes/phy
+    defaults: { _controller: DokkanBundle:Front:pj_phy }
+    
+dokkan_front_pj_dokkan:
+    path: /personajes/dokkan-awaken
+    defaults: { _controller: DokkanBundle:Front:pj_dokkan }
+    
+    # Personajes
+    
+    # Items
+dokkan_front_items:
+    path: /items
+    defaults: { _controller: DokkanBundle:Front:items }
+    
+dokkan_front_it_awakening:
+    path: /items/awakening-medals
+    defaults: { _controller: DokkanBundle:Front:it_awakening }
+    
+dokkan_front_it_support:
+    path: /items/support-items
+    defaults: { _controller: DokkanBundle:Front:it_support }
+    
+dokkan_front_it_training:
+    path: /items/training-items
+    defaults: { _controller: DokkanBundle:Front:it_training }
+    
+dokkan_front_it_locations:
+    path: /items/training-locations
+    defaults: { _controller: DokkanBundle:Front:it_locations }
+    # Items
+    
+dokkan_front_eventos:
+    path: /eventos
+    defaults: { _controller: DokkanBundle:Front:eventos }
+    
+dokkan_front_torneos:
+    path: /torneos
+    defaults: { _controller: DokkanBundle:Front:torneos }
+
+dokkan_front_about:
+    path: /about
+    defaults: { _controller: DokkanBundle:Front:about }
+
+dokkan_front_contact:
+    path: /contact
+    defaults: { _controller: DokkanBundle:Front:contact }
+       
+# Front-End
