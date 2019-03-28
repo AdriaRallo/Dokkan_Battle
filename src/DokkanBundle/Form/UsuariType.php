@@ -29,7 +29,7 @@ class UsuariType extends AbstractType
 				"class" => "form-password form-control",
 			)))
             ->add('Guardar', SubmitType::class, array("attr" =>array(
-				"class" => "form-submit btn btn-success",
+				"class" => "form-submit btn btn-success prova",
 			)))
         ;
     }

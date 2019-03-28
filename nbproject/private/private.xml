@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Resources/config/routing.yml</file>
+            <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Resources/views/User/register.html.twig</file>
             <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Resources/views/User/login.html.twig</file>
             <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Controller/FrontController.php</file>
             <file>file:/var/www/html/dokkan_battle/src/DokkanBundle/Resources/views/cap.html.twig</file>

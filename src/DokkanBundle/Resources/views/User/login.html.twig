@@ -6,7 +6,7 @@
          {{dump(app.user)}}
      {% endif %}
     #}
-
+    <h1>Login</h1>
 
     <div class="col-lg-4" text-align="center">
         <h2>Inicia Sessión</h2>
@@ -32,16 +32,6 @@
     <br>
     <br>     
 
-    <div class="col-lg-4" text-align="center">
-        <h2>Hazte Miembro</h2>
-        {% for message in app.session.flashbag().get("status") %}
-            <div class="alert alert-success">{{message}}<div>
-                {% endfor %}
-                <hr/>
-                {{form_start(form, {'action':'', 'method':'POST'})}}
-                {{form_end(form)}}
-            </div>
-        </div>
-    </div>
+
     <div class="clearfix"></div>
 {% endblock %}

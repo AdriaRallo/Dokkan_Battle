@@ -1,0 +1,23 @@
+{% extends 'DokkanBundle::cap.html.twig' %}
+
+{% block content %}
+
+    {# {% if app.user != null %}
+         {{dump(app.user)}}
+     {% endif %}
+    #}
+    <h1>Registre</h1>
+
+    <div class="col-lg-4" text-align="center">
+        <h2>Hazte Miembro</h2>
+        {% for message in app.session.flashbag().get("status") %}
+            <div class="alert alert-success">{{message}}<div>
+                {% endfor %}
+                <hr/>
+                {{form_start(form, {'action':'', 'method':'POST'})}}
+                {{form_end(form)}}
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+{% endblock %}

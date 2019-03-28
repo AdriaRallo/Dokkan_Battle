@@ -15,6 +15,13 @@ logout:
     
 # Login    
 
+# Registre
+
+register:
+    path: /register
+    defaults: { _controller: DokkanBundle:User:register } 
+
+# Registre
 
 #CRUD
 #CRUD CATEGORIA
