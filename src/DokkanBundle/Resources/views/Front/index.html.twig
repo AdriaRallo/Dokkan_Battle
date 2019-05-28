@@ -3,45 +3,85 @@
 {% block content %}
 
     <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-preview">
-            <a href="#">
-              <h2 class="post-title prova2">
-                Títol Principal de l'Entrada 1
-              </h2>
-              <h3 class="post-subtitle">
-                Subtitol i Introducció al Contingut 1
-              </h3>
-            </a>
-            <p class="post-meta">Publicat per:
-              <a href="#">Rallito (Admin)</a>
-            </p>
-          </div>
-          <hr>
-          <div class="post-preview">
-            <a href="#">
-              <h2 class="post-title">
-                Títol Principal de l'Entrada 2
-              </h2>
-              <h3 class="post-subtitle">
-                Subtitol i Introducció al Contingut 2
-              </h3>
-            </a>
-            <p class="post-meta">Publicat per:
-              <a href="#">Rallito (Admin)</a>
-            </p>
-          </div>
-          <hr>
-          <!-- Pager -->
-          <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Entrades anteriors &rarr;</a>
-          </div>
+    {% for entrada in entrades %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-preview">
+                        <a href="#">
+                            <h2 class="post-title">
+                                {{entrada.titol}}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{entrada.contingut | raw}}
+                            </h3>
+                        </a>
+                        <p class="post-meta">Categoria: <a>{{entrada.categoria}}</a>
+                        </p>
+                        <p class="post-meta">Publicat per: <a>{{entrada.usuari.nom}}</a>
+                        </p>
+                    </div>
+                    <hr>
+
+                    {% if (app.user.id is defined)%}
+                        <a href="{{path("dokkan_add_comentari",{"id":entrada.id})}}" class="btn btn-info boto-info">{% trans %}btn_add_comentaris{% endtrans %}</a>
+                    {%endif%}
+                    {%if (app.user.id is defined) and (entrada.usuari.id == app.user.id) %}
+                        <p>
+                            <a href="{{path("dokkan_delete_entrada",{"id":entrada.id})}}" class="btn btn-danger botons" onclick="return confirm('Estàs segur?')">{% trans %}btn_del_entrades{% endtrans %}</a>
+                            <a href="{{path("dokkan_edit_entrada",{"id":entrada.id})}}" class="btn btn-warning botons">{% trans %}btn_edit_entrades{% endtrans %}</a>
+                        </p>
+                    {%endif%}
+
+                    <br>
+                    <div class="divspoiler">
+                        <input type="button" value="Ver Comentarios" onclick="if (this.parentNode.nextSibling.childNodes[0].style.display != '') {
+                                    this.parentNode.nextSibling.childNodes[0].style.display = '';
+                                    this.value = 'Ocultar Comentarios';
+                                } else {
+                                    this.parentNode.nextSibling.childNodes[0].style.display = 'none';
+                                    this.value = 'Ver Comentarios';
+                                }" />
+                    </div><div><div class="spoiler" style="display: none;">
+
+                            {% for comentari in entrada.comentari %}
+                                <p><b>Comentari:</b> {{comentari.contingut | raw}}</p>
+                                <p><b>Autor del Comentari:</b> {{comentari.usuari.nom}}</p>
+
+                                {# if ((app.user.id is defined) and (comentari.usuari.id == app.user.id)) or ((comentari.usuari.id == app.user.id) and (comentari.usuari.role != "ROLE_ADMIN")) #}
+
+                                {%if ((app.user.id is defined) and (comentari.usuari.id == app.user.id)) or (comentari.usuari.role != "ROLE_ADMIN") %}
+
+                                    <p>
+                                        <a href="{{path("dokkan_delete_comentari",{"id":comentari.id})}}" class="btn btn-danger botons_comentaris" onclick="return confirm('Estàs segur?')">Delete</a>
+                                        <a href="{{path("dokkan_edit_comentari",{"id":comentari.id,"id_ent":entrada.id})}}" class="btn btn-warning botons_comentaris">Edit</a>
+                                    </p>
+                                {%endif%}
+                                <hr/>
+                            {% endfor %}
+
+
+
+                        </div></div>
+
+                </div>
+            </div>
+
         </div>
-      </div>
+    {% endfor %}
+    <br>
+    <!-- -->
+    <div class="paginacio btn btn-primary float-right">
+        {{ knp_pagination_render(entrades) }}
     </div>
 
-    <hr>
+    <!-- -->
 
+
+    <!-- Pager 
+    <div class="clearfix">
+        <a class="btn btn-primary float-right" href="#">Entrades anteriors &rarr;</a>
+    </div>
+
+    <hr>-->
 {% endblock %}

@@ -43,7 +43,7 @@
         
         {%if (app.user.id is defined) and (entrada.usuari.id == app.user.id) %}
         <p>
-            <a href="{{path("dokkan_delete_entrada",{"id":entrada.id})}}" class="btn btn-danger">{% trans %}btn_del_entrades{% endtrans %}</a>
+            <a href="{{path("dokkan_delete_entrada",{"id":entrada.id})}}" class="btn btn-danger" onclick="return confirm('Estàs segur?')" >{% trans %}btn_del_entrades{% endtrans %}</a>
             <a href="{{path("dokkan_edit_entrada",{"id":entrada.id})}}" class="btn btn-warning">{% trans %}btn_edit_entrades{% endtrans %}</a>
             {# Prova  #}
              <a href="{{path("dokkan_add_comentari",{"id":entrada.id})}}" class="btn btn-info">{% trans %}btn_add_comentaris{% endtrans %}</a>
@@ -61,7 +61,7 @@
             
             {%if ((app.user.id is defined) and (comentari.usuari.id == app.user.id)) or (comentari.usuari.role != "ROLE_ADMIN") %}
             <p>
-            <a href="{{path("dokkan_delete_comentari",{"id":comentari.id})}}" class="btn btn-danger">Esborrar</a>
+            <a href="{{path("dokkan_delete_comentari",{"id":comentari.id})}}" class="btn btn-danger" onclick="return confirm('Estàs segur?')" >Esborrar</a>
             <a href="{{path("dokkan_edit_comentari",{"id":comentari.id,"id_ent":entrada.id})}}" class="btn btn-warning">Editar</a>
             {# <a href="{{path("dokkan_edit_comentari",{"id":comentari.id}{"ide":entrada.id})}}" class="btn btn-warning">Editar</a> #}
             </p>

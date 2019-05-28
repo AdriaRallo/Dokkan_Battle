@@ -6,10 +6,8 @@
          {{dump(app.user)}}
      {% endif %}
     #}
-    <h1>Registre</h1>
-
     <div class="col-lg-4" text-align="center">
-        <h2>Hazte Miembro</h2>
+        <h2 class="subtitol">Hazte Miembro</h2>
         {% for message in app.session.flashbag().get("status") %}
             <div class="alert alert-success">{{message}}<div>
                 {% endfor %}

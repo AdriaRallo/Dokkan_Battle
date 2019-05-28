@@ -95,7 +95,7 @@ dokkan_edit_comentari:
 # Front-End
 dokkan_front_home:
     path: /home
-    defaults: { _controller: DokkanBundle:Front:home }
+    defaults: { _controller: DokkanBundle:Entrada:index_ }
 
     # Personajes
     

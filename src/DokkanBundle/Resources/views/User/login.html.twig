@@ -6,10 +6,8 @@
          {{dump(app.user)}}
      {% endif %}
     #}
-    <h1>Login</h1>
-
     <div class="col-lg-4" text-align="center">
-        <h2>Inicia Sessión</h2>
+        <h2 class="subtitol">Iniciar Session</h2>
         {% if is_granted('ROLE_USER') %}
             <strong>USER NORMAL</strong>
         {% endif %}
