@@ -25,6 +25,7 @@
 
                     {% if (app.user.id is defined)%}
                         <a href="{{path("dokkan_add_comentari",{"id":entrada.id})}}" class="btn btn-info boto-info">{% trans %}btn_add_comentaris{% endtrans %}</a>
+                        <br>
                     {%endif%}
                     {%if (app.user.id is defined) and (entrada.usuari.id == app.user.id) %}
                         <p>
@@ -50,10 +51,10 @@
 
                                 {# if ((app.user.id is defined) and (comentari.usuari.id == app.user.id)) or ((comentari.usuari.id == app.user.id) and (comentari.usuari.role != "ROLE_ADMIN")) #}
 
-                                {%if ((app.user.id is defined) and (comentari.usuari.id == app.user.id)) or (comentari.usuari.role != "ROLE_ADMIN") %}
+                                {%if ((app.user != null) and (comentari.usuari.id == app.user.id) or (app.user == "rallito")) %}
 
                                     <p>
-                                        <a href="{{path("dokkan_delete_comentari",{"id":comentari.id})}}" class="btn btn-danger botons_comentaris" onclick="return confirm('Estàs segur?')">Delete</a>
+                                        <a href="{{path("dokkan_delete_comentari",{"id":comentari.id})}}" class="btn btn-danger botons_comentaris" onclick="return confirm('Estàs segur?');">Delete</a>
                                         <a href="{{path("dokkan_edit_comentari",{"id":comentari.id,"id_ent":entrada.id})}}" class="btn btn-warning botons_comentaris">Edit</a>
                                     </p>
                                 {%endif%}
@@ -70,18 +71,7 @@
         </div>
     {% endfor %}
     <br>
-    <!-- -->
-    <div class="paginacio btn btn-primary float-right">
+    <div class="navigation">
         {{ knp_pagination_render(entrades) }}
     </div>
-
-    <!-- -->
-
-
-    <!-- Pager 
-    <div class="clearfix">
-        <a class="btn btn-primary float-right" href="#">Entrades anteriors &rarr;</a>
-    </div>
-
-    <hr>-->
 {% endblock %}

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e536701ebca8879698b03f1422b8d44b",
-    "content-hash": "8b9cbcd9b3e6d06ca18aa2b739565e96",
+    "hash": "e077dfaacf73db4f2fa8ccb0be21b814",
+    "content-hash": "5063f275b5bb48cc62984df723a125f9",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -765,12 +765,12 @@
             "version": "v2.5.14",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/doctrine2.git",
+                "url": "https://github.com/doctrine/orm.git",
                 "reference": "810a7baf81462a5ddf10e8baa8cb94b6eec02754"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/810a7baf81462a5ddf10e8baa8cb94b6eec02754",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/810a7baf81462a5ddf10e8baa8cb94b6eec02754",
                 "reference": "810a7baf81462a5ddf10e8baa8cb94b6eec02754",
                 "shasum": ""
             },
@@ -1358,6 +1358,45 @@
                 "http client"
             ],
             "time": "2018-02-03 19:40:45"
+        },
+        {
+            "name": "leblanc-simon/eu-cookie-law-bundle",
+            "version": "0.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leblanc-simon/eu-cookie-law-bundle.git",
+                "reference": "8d27b9d6a7191aa40011798fca1b3b9531fe8808"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leblanc-simon/eu-cookie-law-bundle/zipball/8d27b9d6a7191aa40011798fca1b3b9531fe8808",
+                "reference": "8d27b9d6a7191aa40011798fca1b3b9531fe8808",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/framework-bundle": "^2.8|^3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "LeblancSimon\\EUCookieLawBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Leblanc",
+                    "email": "contact@leblanc-simon.eu",
+                    "homepage": "http://www.leblanc-simon.fr",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add the cookie div explanation according to EU law",
+            "time": "2017-03-12 13:47:29"
         },
         {
             "name": "monolog/monolog",

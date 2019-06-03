@@ -8,13 +8,14 @@
     #}
     <div class="col-lg-4" text-align="center">
         <h2 class="subtitol">Iniciar Session</h2>
-        {% if is_granted('ROLE_USER') %}
+ {#     {% if is_granted('ROLE_USER') %}
             <strong>USER NORMAL</strong>
         {% endif %}
 
         {% if is_granted('ROLE_ADMIN') %}
             <strong>USER ADMIN</strong>
         {% endif %}
+ #}
         <hr/>
         <form action="{{path("login_check")}}" method="post">
             <label>Email:</label>

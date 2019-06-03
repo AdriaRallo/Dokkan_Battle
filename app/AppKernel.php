@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             #Afegit
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new LeblancSimon\EUCookieLawBundle\LeblancSimonEUCookieLawBundle(),
             #Afegit
             new AppBundle\AppBundle(),
             new DokkanBundle\DokkanBundle(),
